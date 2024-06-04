@@ -39,6 +39,8 @@ const Login = async (formData) => {
             // Set a cookie
             Cookies.set('notify_main_u_system_ser', response.data.data, { expires: 30 });
             var logged = true;
+            var role = user;
+            localStorage.setItem("role", role)
             localStorage.setItem("logged", logged);
             navigate("/dashboard"); // Redirect to the dashboard or desired page after login
         } else {

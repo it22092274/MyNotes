@@ -1,0 +1,40 @@
+.footer {
+    padding: 20px 0;
+    background-color: var(--highlight-color);
+    text-align: center;
+    color: var(--secondary-color);
+  }
+  
+  .social-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .social-media svg {
+    margin: 0 10px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .social-media svg:hover {
+    color: #ccc;
+    transform: scale(1.2);
+  }
+  
+  .footer-nav {
+    margin-top: 10px;
+  }
+  
+  .footer-nav a {
+    margin: 0 10px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-nav a:hover {
+    color: #ccc;
+  }
+  

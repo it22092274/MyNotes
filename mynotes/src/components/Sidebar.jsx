@@ -1,59 +1,38 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaHome, FaUser, FaInfoCircle } from 'react-icons/fa';
+import '../styles/NavigationBar.css'; // Import external CSS file
 
-export default function TemporaryDrawer() {
-  const [open, setOpen] = React.useState(false);
-
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
-
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
+function Sidebar({ isOpen, toggleSidebar }) {
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}>Open drawer</Button>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
-      </Drawer>
+    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className="sidebar-header">
+        <button onClick={toggleSidebar} className="close-btn">&times;</button>
+      </div>
+      <ul>
+        <li>
+          <Link to="/" onClick={toggleSidebar}>
+            <FaHome /> Home
+          </Link>
+        </li>
+        <li>
+          <a href="#about" onClick={toggleSidebar}>
+            <FaUser /> About
+          </a>
+        </li>
+        <li>
+          <a href="#pricing" onClick={toggleSidebar}>
+            <FaInfoCircle /> Pricing
+          </a>
+        </li>
+        <li>
+          <a href="#contact" onClick={toggleSidebar}>
+            <FaInfoCircle /> Contact
+          </a>
+        </li>
+      </ul>
     </div>
   );
 }
+
+export default Sidebar;

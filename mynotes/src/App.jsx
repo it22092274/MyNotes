@@ -1,19 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import MenuAppBar from './components/NavigationBar'
-import TemporaryDrawer from './components/Sidebar'
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomeScreen from './pages/HomeScreen';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <MenuAppBar />     
-      {/*<TemporaryDrawer />*/}
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path='/' element={<HomeScreen />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

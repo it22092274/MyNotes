@@ -1,0 +1,139 @@
+:root {
+  --primary-color: #fdd835; /* Soft yellow */
+  --secondary-color: #333; /* Dark gray for text */
+  --background-color: #f0f0f0; /* Light gray for background */
+  --highlight-color: #ffee58; /* Lighter shade of yellow */
+  --padding: 10px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  height: 40px;
+  background: linear-gradient(90deg, var(--primary-color), var(--highlight-color));
+
+  width: 100%;
+  padding: 0 20px;
+}
+
+.social-media-icons {
+  margin-right: 40px;
+}
+
+.social-media-icons svg {
+  margin: 0 10px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-media-icons svg:hover {
+  color: #ccc;
+  transform: scale(1.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 40px;
+  min-width: 320px;
+  backdrop-filter: blur(10px);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: 5px;
+  z-index: 20;
+}
+
+.left svg {
+  color: var(--secondary-color);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .social-media-icons {
+    margin-bottom: 10px;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: -250px;
+  transform: translateY(50%);
+  width: 250px;
+  height: auto;
+  background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+  color: var(--secondary-color);
+  transition: left 1.0s ease;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.sidebar-header .close-btn {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.sidebar-header .close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.387);
+  border-radius: 5px;
+}
+
+.sidebar ul li a svg {
+  margin-right: 10px;
+}
